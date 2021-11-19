@@ -1,0 +1,20 @@
+server:
+  port: 9094
+spring:
+  application:
+    name: API-GATEWAY
+
+zuul:
+  prefix: /tcs
+  routes:
+    department:
+      path: /service1/**
+      service-id: DEPARTMENT-SERVICE
+    user:
+      path: /service2/**
+      service-id: USER-SERVICE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
